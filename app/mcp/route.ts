@@ -84,14 +84,14 @@ const handler = createMcpHandler(async (server) => {
       return {
         content: [
           {
-            type: "text",
-            text: name,
+            type: "resource",
+            resource: {
+              uri: contentWidget.templateUri,
+              mimeType: "text/html+skybridge",
+              text: `Here you go — your username is ${name}`,
+            },
           },
         ],
-        structuredContent: {
-          name: name,
-          timestamp: new Date().toISOString(),
-        },
         _meta: widgetMeta(contentWidget),
       };
     }
